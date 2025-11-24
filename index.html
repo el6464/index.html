@@ -56,16 +56,14 @@ textarea{min-height:140px}
 footer{border-top:2px solid var(--accent);padding:40px 24px;background:var(--accent2);color:#fff;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:12px;flex-wrap:wrap}
 .social-links a{color:#fff;margin:0 12px;text-decoration:none;font-weight:600;transition:0.3s}
 .social-links a:hover{opacity:0.8;transform:scale(1.05)}
-@media(max-width:900px){.hero{flex-direction:column;text-align:center;padding-top:120px}.grid.cols-3{grid-template-columns:1fr}.tabs{overflow-x:auto}}
+@media(max-width:900px){.hero{flex-direction:column;text-align:center;padding-top:120px}.grid.cols-3{grid-template-columns:1fr}.tabs{flex-direction:column;gap:8px;overflow-x:visible}}
 </style>
 </head>
 <body>
 <header>
-<div class="container" style="display:flex;align-items:center;justify-content:space-between">
-<div style="display:flex;gap:14px;align-items:center">
-<img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px">
-<div><strong style="font-size:1.2rem">Bélli et Bien-être</strong><br><small>Cosmétiques naturels & soins premium</small></div></div>
-<nav class="tabs" role="tablist" aria-label="Navigation principale">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
+<div style="display:flex;gap:14px;align-items:center"><img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px"><div><strong style="font-size:1.2rem">Bélli et Bien-être</strong><br><small>Cosmétiques naturels & soins premium</small></div></div>
+<nav class="tabs" role="tablist" aria-label="Navigation principale" id="main-tabs">
 <button class="tab active" data-tab="accueil" role="tab" aria-selected="true">Accueil</button>
 <button class="tab" data-tab="produits" role="tab" aria-selected="false">Produits</button>
 <button class="tab" data-tab="beauté" role="tab" aria-selected="false">Beauté & Conseil</button>
@@ -88,7 +86,7 @@ footer{border-top:2px solid var(--accent);padding:40px 24px;background:var(--acc
 </section>
 <section id="produits" class="tab-panel" hidden>
 <h2>Nos produits</h2>
-<!-- produits ici, structure identique -->
+<!-- produits ici -->
 </section>
 <section id="beauté" class="tab-panel" hidden>
 <h2>Beauté & Conseil</h2>
@@ -127,6 +125,17 @@ panels.forEach(p=>p.hidden=p.id!==id);
 })});
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}});},{threshold:0.1});
 document.querySelectorAll('.card, .review-card').forEach(el=>observer.observe(el));
+
+// Scroll horizontal pour onglets sur mobile
+const tabContainer = document.getElementById('main-tabs');
+tabContainer.addEventListener('touchstart', e => {
+  let touchstartX = e.touches[0].clientX;
+  tabContainer.addEventListener('touchmove', e => {
+    let touchmoveX = e.touches[0].clientX;
+    tabContainer.scrollLeft += touchstartX - touchmoveX;
+    touchstartX = touchmoveX;
+  });
+});
 </script>
 </body>
 </html>

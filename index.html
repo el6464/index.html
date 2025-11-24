@@ -16,7 +16,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:#111;line-height:1.6}
-header{position:fixed;top:0;width:100%;background:var(--accent2);padding:16px 0;z-index:1000;box-shadow:0 4px 12px var(--shadow)}
+header{position:fixed;top:0;width:100%;background:var(--accent2);padding:8px 0;z-index:1000;box-shadow:0 4px 12px var(--shadow)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .tabs{display:flex;gap:12px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tab{padding:10px 16px;border-radius:12px;background:transparent;border:1px solid transparent;cursor:pointer;font-weight:600;transition:0.3s;font-family:'Playfair Display', serif;flex:0 0 auto;white-space:nowrap}
@@ -37,7 +37,7 @@ section:nth-of-type(even) h2, section:nth-of-type(even) h3{color:#fff}
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 24px var(--shadow)}
 .card img{width:100%;border-radius:12px;display:block;margin-bottom:12px}
 .product-info{padding-top:8px}
-.product-title{font-weight:700;margin-bottom:6px}
+.product-title{font-weight:700;margin-bottom:6px;color:#000}
 .product-desc{color:var(--muted);font-size:14px;margin-bottom:6px}
 .price{font-weight:800;color:var(--accent)}
 .btn-buy{display:inline-block;margin-top:12px;padding:clamp(10px,2vw,14px) clamp(20px,4vw,24px);border-radius:24px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:600;transition:0.3s}
@@ -62,7 +62,7 @@ footer{border-top:2px solid var(--accent);padding:40px 24px;background:var(--acc
 <body>
 <header>
 <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
-<div style="display:flex;gap:14px;align-items:center"><img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px"><div><strong style="font-size:1.2rem">Bélli et Bien-être</strong><br><small>Cosmétiques naturels & soins premium</small></div></div>
+<div style="display:flex;gap:12px;align-items:center"><img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px"><div><strong style="font-size:1.2rem">Bélli et Bien-être</strong><br><small>Cosmétiques naturels & soins premium</small></div></div>
 <nav class="tabs" role="tablist" aria-label="Navigation principale" id="main-tabs">
 <button class="tab active" data-tab="accueil" role="tab" aria-selected="true">Accueil</button>
 <button class="tab" data-tab="produits" role="tab" aria-selected="false">Produits</button>

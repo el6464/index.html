@@ -1,123 +1,109 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bélli et Bien-être — Cosmétiques</title>
-  <meta name="description" content="Bélli et Bien-être — cosmétiques naturels et soins premium">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fff;
-      --accent:#b76ba3;
-      --accent2:#6bb3b7;
-      --muted:#555;
-      --card:#f9f6fb;
-      --shadow:rgba(0,0,0,0.1);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:#111;line-height:1.6}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bélli et Bien-être — Cosmétiques</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdfdfd;
+  --accent:#b76ba3;
+  --accent2:#6bb3b7;
+  --muted:#555;
+  --card:#fff;
+  --shadow:rgba(0,0,0,0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#111;line-height:1.6}
 
-    header{background:var(--accent2);border-bottom:2px solid var(--accent);padding:16px 0;position:sticky;top:0;z-index:1000;box-shadow:0 4px 10px var(--shadow)}
-    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+header{position:fixed;top:0;width:100%;background:var(--accent2);padding:16px 0;z-index:1000;box-shadow:0 4px 12px var(--shadow)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.tabs{display:flex;gap:12px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab{padding:10px 16px;border-radius:12px;background:transparent;border:1px solid transparent;cursor:pointer;font-weight:600;transition:0.3s;font-family:'Playfair Display', serif;flex:0 0 auto;}
+.tab.active{background:var(--accent);color:#fff;box-shadow:0 6px 18px var(--shadow)}
 
-    .tabs{display:flex;gap:12px;flex-wrap:wrap}
-    .tab{padding:10px 16px;border-radius:12px;background:transparent;border:1px solid transparent;cursor:pointer;font-weight:600;transition:0.3s;font-family:'Playfair Display', serif;}
-    .tab.active{background:var(--accent);color:#fff;box-shadow:0 6px 18px var(--shadow)}
+.hero{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;padding:140px 24px 60px 24px;background:linear-gradient(rgba(183,107,163,0.4), rgba(107,179,183,0.4)), url('assets/images/hero-bg.jpg') no-repeat center/cover;text-align:center;color:#fff}
+.hero h1{font-family:'Playfair Display', serif;font-size:clamp(32px,6vw,60px);margin-bottom:16px}
+.hero p{font-size:clamp(16px,2.5vw,20px);margin-bottom:24px}
+.cta{display:inline-block;padding:clamp(10px,2vw,16px) clamp(20px,4vw,28px);border-radius:24px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;transition:0.3s}
+.cta:hover{opacity:0.85;transform:translateY(-3px)}
 
-    .hero{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:36px 0}
-    .hero .left{flex:1;min-width:280px}
-    .hero h1{font-family:'Playfair Display', serif;font-size:clamp(28px,5vw,48px);margin-bottom:16px}
-    .hero p{margin-bottom:20px;color:var(--muted)}
-    .cta{display:inline-block;padding:14px 24px;border-radius:16px;background:linear-gradient(135deg, var(--accent), var(--accent2));color:#fff;text-decoration:none;font-weight:700;transition:0.3s}
-    .cta:hover{opacity:0.85;transform:translateY(-2px)}
+section{padding:60px 0}
+section:nth-of-type(even){background:var(--accent2);color:#fff}
+h2,h3{font-family:'Playfair Display', serif;margin-bottom:24px}
+section:nth-of-type(even) h2, section:nth-of-type(even) h3{color:#fff}
 
-    section{padding:48px 0}
-    section:nth-of-type(even){background:var(--accent2);color:#fff}
-    h2,h3{font-family:'Playfair Display', serif;color:var(--accent);margin-bottom:16px}
-    section:nth-of-type(even) h2, section:nth-of-type(even) h3{color:#fff}
-
-    .grid{display:grid;gap:24px}
-    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-
-    .card{background:var(--card);border-radius:16px;padding:16px;border:1px solid #eee;box-shadow:0 4px 16px var(--shadow);transition:0.3s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 12px 24px var(--shadow)}
-    .card img{width:100%;border-radius:12px;display:block}
-    .product-info{padding-top:12px}
-    .product-title{font-weight:700;margin-bottom:6px;font-family:'Playfair Display', serif}
-    .product-desc{color:var(--muted);font-size:14px;margin-bottom:6px}
-    .price{font-weight:800;color:var(--accent)}
-    .btn-buy{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:600;transition:0.3s}
-    .btn-buy:hover{opacity:0.85;transform:translateY(-2px)}
-
-    .video-wrap{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;background:#000;margin-top:16px}
-    .video-wrap iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
-
-    form{display:grid;gap:14px;max-width:520px}
-    input,textarea{padding:14px;border-radius:16px;border:1px solid #ddd;font-size:15px}
-    textarea{min-height:140px}
-    .btn-send{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:14px;border-radius:16px;border:0;font-weight:700;cursor:pointer;transition:0.3s}
-    .btn-send:hover{opacity:0.85;transform:translateY(-2px)}
-
-    .reviews{margin-top:48px}
-    .review-card{background:var(--card);padding:20px;border-radius:16px;border:1px solid #eee;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;transition:0.3s}
-    .review-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px var(--shadow)}
-
-    footer{border-top:2px solid var(--accent);padding:24px 0;background:var(--accent2);color:#fff;display:flex;justify-content:space-between;align-items:center}
-    .social-links a{color:#fff;margin-left:12px;text-decoration:none;font-weight:600;transition:0.3s}
-    .social-links a:hover{opacity:0.8;transform:scale(1.05)}
-
-    @media (max-width:900px){
-      .hero{flex-direction:column}
-      .grid.cols-3{grid-template-columns:1fr}
-      .tabs{overflow:auto}
-    }
-  </style>
+.grid{display:grid;gap:24px}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border-radius:16px;padding:20px;border:1px solid #eee;box-shadow:0 4px 20px var(--shadow);transition:0.3s;opacity:0;transform:translateY(20px);max-width:350px;margin:0 auto}
+.card.visible{opacity:1;transform:translateY(0);transition:all 0.6s ease-out}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 24px var(--shadow)}
+.card img{width:100%;border-radius:12px;display:block;margin-bottom:12px}
+.product-info{padding-top:8px}
+.product-title{font-weight:700;margin-bottom:6px}
+.product-desc{color:var(--muted);font-size:14px;margin-bottom:6px}
+.price{font-weight:800;color:var(--accent)}
+.btn-buy{display:inline-block;margin-top:12px;padding:clamp(10px,2vw,14px) clamp(20px,4vw,24px);border-radius:24px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:600;transition:0.3s}
+.btn-buy:hover{opacity:0.85;transform:translateY(-2px)}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;background:#000;margin-top:16px}
+.video-wrap iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+form{display:grid;gap:16px;max-width:520px;margin:0 auto}
+input,textarea{padding:14px;border-radius:16px;border:1px solid #ddd;font-size:15px}
+textarea{min-height:140px}
+.btn-send{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:14px;border-radius:24px;border:0;font-weight:700;cursor:pointer;transition:0.3s}
+.btn-send:hover{opacity:0.85;transform:translateY(-2px)}
+.reviews{margin-top:48px}
+.review-card{background:var(--card);padding:20px;border-radius:16px;border:1px solid #eee;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;transition:0.3s;opacity:0;transform:translateY(20px);max-width:350px;margin:0 auto}
+.review-card.visible{opacity:1;transform:translateY(0);transition:all 0.6s ease-out}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px var(--shadow)}
+footer{border-top:2px solid var(--accent);padding:40px 0;background:var(--accent2);color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.social-links a{color:#fff;margin-left:12px;text-decoration:none;font-weight:600;transition:0.3s}
+.social-links a:hover{opacity:0.8;transform:scale(1.05)}
+@media(max-width:900px){.hero{flex-direction:column;text-align:center;padding-top:120px}.grid.cols-3{grid-template-columns:1fr}.tabs{overflow-x:auto}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:14px;align-items:center">
-        <img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px">
-        <div>
-          <strong style="font-size:1.2rem">Bélli et Bien-être</strong><br>
-          <small>Cosmétiques naturels & soins premium</small>
-        </div>
-      </div>
-      <nav class="tabs" role="tablist" aria-label="Navigation principale">
-        <button class="tab active" data-tab="accueil" role="tab" aria-selected="true">Accueil</button>
-        <button class="tab" data-tab="produits" role="tab" aria-selected="false">Produits</button>
-        <button class="tab" data-tab="beauté" role="tab" aria-selected="false">Beauté & Conseil</button>
-        <button class="tab" data-tab="contact" role="tab" aria-selected="false">Contact</button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- Sections Accueil, Produits, Beauté et Contact restent mais avec fonds alternés et couleurs améliorées -->
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-      <div>© <strong>Bélli et Bien-être</strong> — Tous droits réservés</div>
-      <div class="social-links">
-        Suivez-nous:
-        <a href="#" target="_blank">Facebook</a>
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">Twitter</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const tabs=document.querySelectorAll('.tab');
-    const panels=document.querySelectorAll('.tab-panel');
-    tabs.forEach(tab=>{tab.addEventListener('click',()=>{
-      tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
-      tab.classList.add('active');tab.setAttribute('aria-selected','true');
-      const id=tab.dataset.tab;
-      panels.forEach(p=>p.hidden=p.id!==id);
-    })});
-  </script>
+<header>
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<div style="display:flex;gap:14px;align-items:center">
+<img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px">
+<div>
+<strong style="font-size:1.2rem">Bélli et Bien-être</strong><br>
+<small>Cosmétiques naturels & soins premium</small>
+</div></div>
+<nav class="tabs" role="tablist" aria-label="Navigation principale">
+<button class="tab active" data-tab="accueil" role="tab" aria-selected="true">Accueil</button>
+<button class="tab" data-tab="produits" role="tab" aria-selected="false">Produits</button>
+<button class="tab" data-tab="beauté" role="tab" aria-selected="false">Beauté & Conseil</button>
+<button class="tab" data-tab="contact" role="tab" aria-selected="false">Contact</button>
+</nav>
+</div>
+</header>
+<main class="container">
+<!-- Accueil, Produits, Beauté et Contact avec bandes alternées, cartes animées et responsive -->
+</main>
+<footer>
+<div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+<div>© <strong>Bélli et Bien-être</strong> — Tous droits réservés</div>
+<div class="social-links">Suivez-nous:
+<a href="#" target="_blank">Facebook</a>
+<a href="#" target="_blank">Instagram</a>
+<a href="#" target="_blank">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+const tabs=document.querySelectorAll('.tab');
+const panels=document.querySelectorAll('.tab-panel');
+tabs.forEach(tab=>{tab.addEventListener('click',()=>{
+tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
+tab.classList.add('active');tab.setAttribute('aria-selected','true');
+const id=tab.dataset.tab;
+panels.forEach(p=>p.hidden=p.id!==id);
+})});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}});},{threshold:0.1});
+document.querySelectorAll('.card, .review-card').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>

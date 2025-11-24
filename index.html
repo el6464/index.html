@@ -12,20 +12,25 @@
     header{background:linear-gradient(135deg,#fff 0%, #fff 60%, #fff);border-bottom:1px solid #eee}
     .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    .tabs{display:flex;gap:12px;flex-wrap:wrap}
+    /* Navbar / Tabs */
+    .tabs{display:flex;gap:12px}
     .tab{padding:10px 14px;border-radius:12px;background:transparent;border:1px solid transparent;cursor:pointer;font-weight:600}
     .tab.active{background:var(--accent);color:#fff;border-color:rgba(0,0,0,0.05);box-shadow:0 6px 18px rgba(183,107,163,0.12)}
 
+    /* Hero */
     .hero{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:36px 0}
     .hero .left{flex:1;min-width:260px}
     .hero h1{font-size:clamp(24px,4vw,40px);margin:0 0 12px}
     .hero p{margin:0 0 18px;color:var(--muted)}
     .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
 
+    /* Sections */
     section{padding:28px 0}
     .grid{display:grid;gap:18px}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
 
+    /* Product card */
     .card{background:var(--card);border-radius:12px;padding:14px;border:1px solid #eee}
     .card img{width:100%;border-radius:8px;display:block}
     .product-info{padding:8px 2px}
@@ -33,9 +38,11 @@
     .price{font-weight:800;color:var(--accent)}
     .btn-buy{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:10px;background:#111;color:#fff;text-decoration:none}
 
+    /* Video embed */
     .video-wrap{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
     .video-wrap iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
 
+    /* Contact */
     form{display:grid;gap:12px;max-width:520px}
     input,textarea{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px}
     textarea{min-height:120px}
@@ -46,6 +53,7 @@
     @media (max-width:800px){
       .hero{flex-direction:column}
       .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
       .tabs{overflow:auto}
     }
   </style>
@@ -54,7 +62,7 @@
   <header>
     <div class="container" style="display:flex;align-items:center;justify-content:space-between">
       <div style="display:flex;gap:14px;align-items:center">
-        <img src="assets/images/logo.png" alt="Logo Éclat Beauté" style="border-radius:8px">
+        <img src="https://via.placeholder.com/48x48.png?text=EB" alt="Logo Éclat Beauté" style="border-radius:8px">
         <div>
           <strong>Éclat Beauté</strong><br>
           <small style="color:var(--muted)">Cosmétiques naturels & soins premium</small>
@@ -69,12 +77,13 @@
   </header>
 
   <main class="container">
+    <!-- Accueil -->
     <section id="accueil" class="tab-panel">
       <div class="hero">
         <div class="left">
           <h1>Bienvenue chez Éclat Beauté</h1>
           <p>Nous créons des cosmétiques riches en ingrédients naturels, testés dermatologiquement, pour révéler l'éclat naturel de votre peau.</p>
-          <a href="#produits" class="cta" onclick="document.querySelector('[data-tab=\'produits\']').click()">Découvrir nos produits</a>
+          <a href="#produits" class="cta">Découvrir nos produits</a>
         </div>
         <div class="right" style="flex:1;min-width:260px">
           <div style="background:linear-gradient(180deg,#fff,#fff);padding:16px;border-radius:12px;border:1px solid #f0eaf3">
@@ -83,96 +92,155 @@
           </div>
         </div>
       </div>
+
+      <!-- Video section -->
       <div style="margin-top:8px">
         <h2>Vidéo de présentation</h2>
         <p style="color:var(--muted)">Découvrez notre histoire et comment nous fabriquons nos produits.</p>
         <div class="video-wrap" style="margin-top:12px">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vidéo Éclat Beauté" allowfullscreen loading="lazy"></iframe>
+          <!-- Remplacez l'URL par votre vidéo YouTube ou Vimeo -->
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vidéo Éclat Beauté" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
+    <!-- Produits -->
     <section id="produits" class="tab-panel" hidden>
       <h2>Nos produits phares</h2>
+      <p style="color:var(--muted)">Des soins formulés pour chaque type de peau — six produits sélectionnés.</p>
+
       <div class="grid cols-3" style="margin-top:18px">
+        <!-- Product 1 -->
         <article class="card">
-          <img src="assets/images/produit1.jpg" alt="Sérum Éclat" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Sérum Éclat">
           <div class="product-info">
             <div class="product-title">Sérum Éclat</div>
             <div class="price">29,90 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit1" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Sérum hydratant concentré en vitamine C pour un teint lumineux.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit1" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
+
+        <!-- Product 2 -->
         <article class="card">
-          <img src="assets/images/produit2.jpg" alt="Crème de Jour" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Crème de jour">
           <div class="product-info">
             <div class="product-title">Crème de Jour Réparatrice</div>
             <div class="price">24,50 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit2" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Hydratation longue durée, protection anti-pollution.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit2" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
+
+        <!-- Product 3 -->
         <article class="card">
-          <img src="assets/images/produit3.jpg" alt="Masque Nuit" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Masque Nuit">
           <div class="product-info">
             <div class="product-title">Masque Nuit Régénérant</div>
             <div class="price">34,00 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit3" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Soin intensif pour la régénération nocturne de la peau.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit3" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
+
+        <!-- Product 4 -->
         <article class="card">
-          <img src="assets/images/produit4.jpg" alt="Huile visage" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1523381214185-7d68b4a7e8d4?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Huile visage">
           <div class="product-info">
             <div class="product-title">Huile Visage Nourrissante</div>
             <div class="price">27,00 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit4" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Riche en acides gras essentiels pour les peaux sèches.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit4" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
+
+        <!-- Product 5 -->
         <article class="card">
-          <img src="assets/images/produit5.jpg" alt="Brume visage" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Brume visage">
           <div class="product-info">
             <div class="product-title">Brume Hydratante</div>
             <div class="price">15,90 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit5" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Brume légère pour rafraîchir et hydrater tout au long de la journée.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit5" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
+
+        <!-- Product 6 -->
         <article class="card">
-          <img src="assets/images/produit6.jpg" alt="Crème nuit" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Crème nuit">
           <div class="product-info">
             <div class="product-title">Crème Nuit Confort</div>
             <div class="price">31,50 €</div>
-            <a class="btn-buy" href="https://buy.example.com/produit6" target="_blank" rel="noopener">Acheter</a>
+            <p style="margin:6px 0;color:var(--muted)">Texture riche, réparation et souplesse au réveil.</p>
+            <a class="btn-buy" href="https://buy.example.com/produit6" target="_blank" rel="noopener">Acheter — Paiement</a>
           </div>
         </article>
       </div>
+
+      <p style="margin-top:12px;color:var(--muted)"><small>Remplacez les liens de paiement par vos liens réels (Stripe, PayPal, WooCommerce, etc.).</small></p>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="tab-panel" hidden>
       <h2>Contactez-nous</h2>
+      <p style="color:var(--muted)">Une question ? Un partenariat ? Envoyez-nous un message.</p>
+
+      <!-- Contact form: pour un site statique, utilisez Formspree ou Netlify Forms. -->
       <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre e-mail" required>
-        <textarea name="message" placeholder="Votre message" required></textarea>
+        <label>
+          <input type="text" name="name" placeholder="Votre nom" required>
+        </label>
+        <label>
+          <input type="email" name="email" placeholder="Votre e-mail" required>
+        </label>
+        <label>
+          <textarea name="message" placeholder="Votre message" required></textarea>
+        </label>
         <button type="submit" class="btn-send">Envoyer le message</button>
       </form>
+
+      <div style="margin-top:18px">
+        <h3>Infos</h3>
+        <p style="color:var(--muted)"><strong>Email :</strong> <a href="mailto:contact@eclat-beaute.example">contact@eclat-beaute.example</a><br>
+        <strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-      <div>© <strong>Éclat Beauté</strong> — Tous droits réservés</div>
+      <div>
+        © <strong>Éclat Beauté</strong> — Tous droits réservés
+      </div>
       <div style="color:var(--muted)">Suivez-nous sur les réseaux</div>
     </div>
   </footer>
 
   <script>
-    const tabs=document.querySelectorAll('.tab');
-    const panels=document.querySelectorAll('.tab-panel');
-    tabs.forEach(tab=>{tab.addEventListener('click',()=>{
-      tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
-      tab.classList.add('active');tab.setAttribute('aria-selected','true');
-      const id=tab.dataset.tab;
-      panels.forEach(p=>p.hidden=p.id!==id);
-    })});
+    // Simple tab behaviour
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        // set active
+        tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
+        tab.classList.add('active');tab.setAttribute('aria-selected','true');
+        // show panel
+        const id = tab.dataset.tab;
+        panels.forEach(p=>{
+          if(p.id===id){p.hidden=false}else{p.hidden=true}
+        })
+        // small focus for accessibility
+        document.getElementById(id).focus?.();
+      })
+    })
+
+    // Optional: deep link to open a tab via hash (ex: #produits)
+    const hash = location.hash.replace('#','');
+    if(hash){
+      const tab = Array.from(tabs).find(t=>t.dataset.tab===hash);
+      if(tab) tab.click();
+    }
   </script>
 </body>
 </html>

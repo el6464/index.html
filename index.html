@@ -83,4 +83,113 @@
     </div>
   </header>
 
-  <main class="co
+  <main class="container">
+    <!-- Accueil -->
+    <section id="accueil" class="tab-panel">
+      <div class="hero">
+        <div class="left">
+          <h1>Bienvenue chez Éclat Beauté</h1>
+          <p>Nous créons des cosmétiques riches en ingrédients naturels, testés dermatologiquement, pour révéler l'éclat naturel de votre peau.</p>
+          <a href="#produits" class="cta" onclick="document.querySelector('[data-tab=\'produits\']').click()">Découvrir nos produits</a>
+        </div>
+        <div class="right" style="flex:1;min-width:260px">
+          <div style="background:linear-gradient(180deg,#fff,#fff);padding:16px;border-radius:12px;border:1px solid #f0eaf3">
+            <strong>Notre promesse</strong>
+            <p style="margin:8px 0 0;color:var(--muted)">Formules propres, tests cliniques, emballages recyclables.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <h2>Vidéo de présentation</h2>
+        <p style="color:var(--muted)">Découvrez notre histoire et comment nous fabriquons nos produits.</p>
+        <div class="video-wrap" style="margin-top:12px">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vidéo Éclat Beauté" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits -->
+    <section id="produits" class="tab-panel" hidden>
+      <h2>Nos produits</h2>
+      <div style="display:flex;gap:12px;margin-bottom:12px">
+        <button class="tab subtab active" data-subtab="cheveux">Cheveux</button>
+        <button class="tab subtab" data-subtab="hygiene">Hygiène</button>
+        <button class="tab subtab" data-subtab="soins">Soins visage</button>
+      </div>
+
+      <div class="grid cols-3 subpanel" data-panel="cheveux">
+        <article class="card"><img src="https://via.placeholder.com/400" alt="Sérum Cheveux"><div class="product-info"><div class="product-title">Sérum Cheveux</div><div class="price">29,90 €</div><a class="btn-buy">Acheter</a></div></article>
+      </div>
+      <div class="grid cols-3 subpanel" data-panel="hygiene" hidden>
+        <article class="card"><img src="https://via.placeholder.com/400" alt="Gel Douche"><div class="product-info"><div class="product-title">Gel Douche Naturel</div><div class="price">9,90 €</div><a class="btn-buy">Acheter</a></div></article>
+      </div>
+      <div class="grid cols-3 subpanel" data-panel="soins" hidden>
+        <article class="card"><img src="https://via.placeholder.com/400" alt="Crème Visage"><div class="product-info"><div class="product-title">Crème Visage Hydratante</div><div class="price">31,50 €</div><a class="btn-buy">Acheter</a></div></article>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos" class="tab-panel" hidden>
+      <h2>À propos de l’entreprise</h2>
+      <p style="color:var(--muted)">Éclat Beauté est spécialisée dans les cosmétiques naturels, respectueux de la peau et de l’environnement.</p>
+      <p>Ingrédients naturels, sans parabènes, non testés sur les animaux, emballages recyclables.</p>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="tab-panel" hidden>
+      <h2>Conseils beauté & Blog</h2>
+      <div class="grid cols-2" style="margin-top:16px">
+        <article class="card"><h3>Routine beauté naturelle</h3><p style="color:var(--muted)">Les étapes essentielles pour une routine efficace et naturelle.</p></article>
+        <article class="card"><h3>Vitamine C pour la peau</h3><p style="color:var(--muted)">Antioxydant puissant pour éclat et protection de la peau.</p></article>
+      </div>
+    </section>
+
+    <!-- Avis clients -->
+    <section id="avis" class="tab-panel" hidden>
+      <h2>Avis clients</h2>
+      <div class="review"><div class="stars">⭐⭐⭐⭐⭐</div><p>Produits de grande qualité, livraison rapide. Je recommande !</p></div>
+      <div class="review"><div class="stars">⭐⭐⭐⭐⭐</div><p>Très satisfaite de ma commande, senteurs agréables et texture douce.</p></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="tab-panel" hidden>
+      <h2>Contactez-nous</h2>
+      <p style="color:var(--muted)">Une question ? Un partenariat ? Envoyez-nous un message.</p>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre e-mail" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit" class="btn-send">Envoyer le message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div>© <strong>Éclat Beauté</strong> — Tous droits réservés</div>
+      <div style="color:var(--muted)">Suivez-nous sur les réseaux</div>
+    </div>
+  </footer>
+
+  <script>
+    const tabs=document.querySelectorAll('.tab');
+    const panels=document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab=>{tab.addEventListener('click',()=>{
+      tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      const id=tab.dataset.tab;
+      panels.forEach(p=>p.hidden=p.id!==id);
+    })});
+
+    const subtabs=document.querySelectorAll('.subtab');
+    const subpanels=document.querySelectorAll('.subpanel');
+    subtabs.forEach(st=>{st.addEventListener('click',()=>{
+      subtabs.forEach(s=>s.classList.remove('active'));
+      st.classList.add('active');
+      const target=st.dataset.subtab;
+      subpanels.forEach(p=>p.hidden=p.dataset.panel!==target);
+    })});
+  </script>
+</body>
+</html>

@@ -94,8 +94,23 @@ color: #fff;
 .btn-buy { display:inline-block; margin-top:12px; padding:10px 20px; border-radius:24px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
 .btn-buy:hover { opacity:0.85; transform:translateY(-2px); }
 
-.video-wrap { position:relative; padding-top:56.25%; border-radius:16px; overflow:hidden; background:#000; margin-top:16px; }
-.video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-wrap {
+  position: relative;
+  padding-top: 56.25%; /* ratio 16:9 */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  margin: 16px auto 0; /* centre horizontalement */
+  max-width: 600px; /* largeur maximale */
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .review-card { background: var(--card); padding:20px; border-radius:16px; border:1px solid #eee; box-shadow:0 4px 16px var(--shadow); margin-bottom:16px; opacity:0; transform:translateY(20px); transition:0.3s; }
 .review-card.visible { opacity:1; transform:translateY(0); transition:all 0.6s ease-out; }
@@ -129,6 +144,11 @@ form { width:90%; padding:20px; }
 h1 { font-size:1.6rem; }
 input,textarea { font-size:14px; }
 }
+  @media (max-width: 900px) {
+  .video-wrap {
+    max-width: 100%;
+  }
+}
   /* Séparateurs pour les sections */
 section {
   padding: 60px 0;
@@ -137,13 +157,16 @@ section {
 }
 /* Encadrement des titres H2 */
 h2 {
+  color: #000;          /* texte noir */
+  text-align: center;    /* centré */
   border: 2px solid var(--accent2);
   padding: 12px 20px;
   border-radius: 12px;
   display: inline-block;
   background: var(--card);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
+
   /* Beauté & Conseil design */
 .beauty-section {
   margin-bottom: 40px;
@@ -310,7 +333,7 @@ main.container {
 
 <!-- BEAUTÉ & CONSEIL -->
 <section id="beaute" class="tab-panel" hidden>
-  <h2>Beauté & Conseil</h2>
+
 
   <div class="beauty-section">
     <h3>Routine Matinale</h3>

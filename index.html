@@ -1,172 +1,86 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bélli et Bien-être — Cosmétiques</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fdfdfd;
-      --accent: #b76ba3;
-      --accent2: #6bb3b7;
-      --muted: #333;
-      --card: #fff;
-      --shadow: rgba(0, 0, 0, 0.15);
-      --text-footer: #000;
-      --text-hero: #000;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bélli et Bien-être — Cosmétiques</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: #111; line-height: 1.6; }
 
-    header { position: fixed; top: 0; width: 100%; background: var(--accent2); padding: 12px 0; z-index: 1000; box-shadow: 0 4px 12px var(--shadow); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .tabs { display: flex; gap: 12px; flex-wrap: wrap; overflow-x: auto; }
-    .tab { padding: 8px 12px; border-radius: 12px; background: transparent; cursor: pointer; font-weight: 600; font-family: 'Playfair Display', serif; flex: 0 0 auto; white-space: nowrap; transition: 0.3s; }
-    .tab.active { background: var(--accent); color: #fff; box-shadow: 0 6px 18px var(--shadow); }
+<style>
+:root {
+--bg: #fdfdfd;
+--accent: #b76ba3;
+--accent2: #6bb3b7;
+--muted: #333;
+--card: #fff;
+--shadow: rgba(0, 0, 0, 0.15);
+--text-footer: #000;
+--text-hero: #000;
+}
 
-    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 24px 40px; background: linear-gradient(rgba(183,107,163,0.4), rgba(107,179,183,0.4)), url('assets/images/hero-bg.jpg') center/cover no-repeat; text-align: center; color: var(--text-hero); }
-    .hero h1 { font-size: clamp(28px,6vw,48px); margin-bottom: 16px; }
-    .hero p { font-size: clamp(16px,2.5vw,18px); margin-bottom: 24px; }
-    .cta { display: inline-block; padding: 12px 24px; border-radius: 24px; background: linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; text-decoration:none; font-weight:700; transition:0.3s; }
-    .cta:hover { opacity:0.85; transform:translateY(-3px); }
 
-    section { padding: 60px 0; }
-    section:nth-of-type(even) { background: var(--accent2); color: #fff; }
-    h2,h3 { font-family:'Playfair Display', serif; margin-bottom:24px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: 'Inter', sans-serif;
+background: var(--bg);
+color: #111;
+line-height: 1.6;
+}
 
-    .grid { display: grid; gap: 24px; }
-    .grid.cols-3 { grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
 
-    .card { background: var(--card); border-radius:16px; padding:20px; border:1px solid #eee; box-shadow:0 4px 20px var(--shadow); transition:0.3s; opacity:0; transform:translateY(20px); }
-    .card.visible { opacity:1; transform:translateY(0); transition:all 0.6s ease-out; }
-    .card:hover { transform:translateY(-6px); box-shadow:0 12px 24px var(--shadow); }
-    .card img { width:100%; border-radius:12px; margin-bottom:12px; }
-    .product-title { font-weight:700; margin-bottom:6px; color:#111; }
-    .product-desc { color:var(--muted); font-size:14px; margin-bottom:6px; }
-    .price { font-weight:800; color:var(--accent); }
-    .btn-buy { display:inline-block; margin-top:12px; padding:10px 20px; border-radius:24px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
-    .btn-buy:hover { opacity:0.85; transform:translateY(-2px); }
+header {
+position: fixed;
+top: 0;
+width: 100%;
+background: var(--accent2);
+padding: 12px 0;
+z-index: 1000;
+box-shadow: 0 4px 12px var(--shadow);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    .video-wrap { position:relative; padding-top:56.25%; border-radius:16px; overflow:hidden; background:#000; margin-top:16px; }
-    .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-    .review-card { background: var(--card); padding:20px; border-radius:16px; border:1px solid #eee; box-shadow:0 4px 16px var(--shadow); margin-bottom:16px; opacity:0; transform:translateY(20px); transition:0.3s; }
-    .review-card.visible { opacity:1; transform:translateY(0); transition:all 0.6s ease-out; }
+.tabs {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+overflow-x: auto;
+}
+.tab {
+padding: 8px 12px;
+border-radius: 12px;
+background: transparent;
+cursor: pointer;
+font-weight: 600;
+font-family: 'Playfair Display', serif;
+flex: 0 0 auto;
+white-space: nowrap;
+transition: 0.3s;
+}
+.tab.active { background: var(--accent); color: #fff; box-shadow: 0 6px 18px var(--shadow); }
 
-    form { display:flex; flex-direction:column; gap:16px; max-width:600px; margin:20px auto; padding:30px; background:#fff; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1); }
-    input,textarea { padding:14px; border-radius:12px; border:1px solid #ccc; font-size:16px; width:100%; color:#111; }
-    textarea { min-height:140px; }
-    .btn-send { background: linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; padding:14px; border-radius:24px; border:0; font-weight:700; cursor:pointer; transition:0.3s; }
-    .btn-send:hover { opacity:0.85; transform:translateY(-2px); }
 
-    footer { border-top:2px solid var(--accent); padding:40px 24px; background:var(--accent2); color:#fff; text-align:center; }
-    .social-links a { color:#fff; margin:0 12px; text-decoration:none; font-weight:600; transition:0.3s; }
-    .social-links a:hover { opacity:0.8; transform:scale(1.05); }
+.hero {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 120px 24px 40px;
+background: linear-gradient(rgba(183,107,163,0.4), rgba(107,179,183,0.4)), url('assets/images/hero-bg.jpg') center/cover no-repeat;
+text-align: center;
+color: var(--text-hero);
+}
+.hero h1 { font-size: clamp(28px,6vw,48px); margin-bottom: 16px; }
+.hero p { font-size: clamp(16px,2.5vw,18px); margin-bottom: 24px; }
+.cta { display: inline-block; padding: 12px 24px; border-radius: 24px; background: linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; text-decoration:none; font-weight:700; transition:0.3s; }
+.cta:hover { opacity:0.85; transform:translateY(-3px); }
 
-    @media(max-width:900px){ .hero { padding-top:140px; } .grid.cols-3 { grid-template-columns:1fr; } form { width:90%; padding:20px; } }
-    @media(max-width:480px){ h1 { font-size:1.6rem; } input,textarea { font-size:14px; } }
-  </style>
-</head>
-<body>
 
-<header>
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="display:flex;gap:12px;align-items:center">
-      <img src="assets/images/logo.png" alt="Logo Bélli et Bien-être" style="border-radius:12px;width:60px">
-      <div>
-        <strong style="font-size:1.2rem">Bélli et Bien-être</strong><br>
-        <small>Cosmétiques naturels & soins premium</small>
-      </div>
-    </div>
-    <nav class="tabs" role="tablist" aria-label="Navigation principale" id="main-tabs">
-      <button class="tab active" data-tab="accueil" role="tab" aria-selected="true">Accueil</button>
-      <button class="tab" data-tab="produits" role="tab" aria-selected="false">Produits</button>
-      <button class="tab" data-tab="beaute" role="tab" aria-selected="false">Beauté & Conseil</button>
-      <button class="tab" data-tab="contact" role="tab" aria-selected="false">Contact</button>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- ACCUEIL -->
-  <section id="accueil" class="tab-panel">
-    <div class="hero">
-      <h1>Bienvenue chez Bélli et Bien-être</h1>
-      <p>Des cosmétiques naturels, testés dermatologiquement, pour sublimer votre peau.</p>
-      <a href="#produits" class="cta" onclick="document.querySelector('[data-tab=\'produits\']').click()">Découvrir nos produits</a>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:40px;">
-      <div style="flex:1;min-width:300px;">
-        <h2>Vidéo de présentation</h2>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vidéo Éclat Beauté" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-      <div style="flex:1;min-width:300px;">
-        <h2>Avis de nos clients</h2>
-        <div class="review-card visible"><strong>Marie D.</strong><p>"Les produits ont transformé ma peau. Je recommande !"</p></div>
-        <div class="review-card visible"><strong>Lucas T.</strong><p>"Service rapide et produits excellents."</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUITS -->
-  <section id="produits" class="tab-panel" hidden>
-    <h2>Nos produits</h2>
-
-    <h3 style="color:var(--accent)">Soin du visage</h3>
-    <div class="grid cols-3">
-      <article class="card">
-        <img src="assets/images/produit1.jpg" alt="Sérum Éclat" loading="lazy">
-        <div class="product-title">Sérum Éclat</div>
-        <div class="product-desc">Sérum léger pour un teint lumineux et hydraté.</div>
-        <div class="price">29,90 €</div>
-        <a class="btn-buy" href="#">Acheter</a>
-      </article>
-      <article class="card">
-        <img src="assets/images/produit2.jpg" alt="Crème de Jour" loading="lazy">
-        <div class="product-title">Crème de Jour Réparatrice</div>
-        <div class="product-desc">Hydrate et protège la peau toute la journée.</div>
-        <div class="price">24,50 €</div>
-        <a class="btn-buy" href="#">Acheter</a>
-      </article>
-    </div>
-
-    <h3 style="color:var(--accent)">Soins du corps</h3>
-    <div class="grid cols-3">
-      <article class="card">
-        <img src="assets/images/produit3.jpg" alt="Masque Nuit" loading="lazy">
-        <div class="product-title">Masque Nuit Régénérant</div>
-        <div class="product-desc">Régénère la peau pendant votre sommeil.</div>
-        <div class="price">34,00 €</div>
-        <a class="btn-buy" href="#">Acheter</a>
-      </article>
-    </div>
-
-    <h3 style="color:var(--accent)">Accessoires & parfums</h3>
-    <div class="grid cols-3">
-      <article class="card">
-        <img src="assets/images/produit5.jpg" alt="Brume visage" loading="lazy">
-        <div class="product-title">Brume Hydratante</div>
-        <div class="product-desc">Rafraîchit et hydrate instantanément.</div>
-        <div class="price">15,90 €</div>
-        <a class="btn-buy" href="#">Acheter</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- BEAUTÉ -->
-  <section id="beaute" class="tab-panel" hidden>
-    <h2>Beauté & Conseil</h2>
-    <p style="color:var(--muted)">Découvrez nos conseils pour prendre soin de votre peau.</p>
-    <h3>Routine Matinale</h3>
-    <p style="color:var(--muted)">Préparer et protéger votre peau pour la journée.</p>
-    <h3>Routine du Soir</h3>
-    <p style="color:var(--muted)">Astuces pour régénérer et apaiser votre peau le soir.</p>
-  </section>
+section { padding: 60px 0; }
+section:nth-of-type(even) { background: var(--accent2); color: #fff; }
+h2,h3 { font-family:'Playfair Display', serif; margin-bottom:24px; }
+</section>
 
   <!-- CONTACT -->
   <section id="contact" class="tab-panel" hidden>
